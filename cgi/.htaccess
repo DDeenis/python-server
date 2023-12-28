@@ -1,0 +1,12 @@
+RewriteEngine on
+RewriteRule ^(\w{2})/envs/(.*)$ envs.py?lang=$1&id=$2 [END,QSA]
+RewriteRule ^(\w{2})/auth/(.*)$ auth.py?lang=$1&id=$2 [END,QSA]
+RewriteRule ^(\w{2})/cart/(.*)$ cart.py?lang=$1&id=$2 [END,QSA]
+RewriteRule ^(\w{2})/product/(.*)$ product.py?lang=$1&id=$2 [END,QSA]
+RewriteRule ^auth$ api/auth.py [END,QSA]
+RewriteRule ^product$ api/product.py [END,QSA]
+RewriteRule ^cart$ api/cart.py [END,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.py [END,QSA]

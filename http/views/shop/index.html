@@ -1,0 +1,35 @@
+<div
+  v-scope="ProductsList({ initialProducts: @initial_products })"
+  @vue:mounted="mounted"
+></div>
+
+<template id="products-list-template">
+  <div class="row">
+    <div
+      v-for="product in products"
+      v-scope="Product({ product })"
+      class="col s6 m4 l3 xl2"
+    ></div>
+  </div>
+</template>
+<template id="product-template">
+  <div class="card">
+    <div class="card-image">
+      <img v-bind:src="'/img/' + product.image_url" width="150" />
+      <a class="btn-floating halfway-fab waves-effect waves-light red">
+        <i class="material-icons">shopping_cart</i>
+      </a>
+    </div>
+    <div class="card-content">
+      <span class="card-title product-card-title" v-bind:title="product.name"
+        >{{product.name}}</span
+      >
+      <p style="text-decoration: line-through">
+        {{product.price + product.price / 2}} грн
+      </p>
+      <p>{{product.price}} грн</p>
+    </div>
+  </div>
+</template>
+
+<script type="module" src="/js/spa.js" charset="utf-8"></script>

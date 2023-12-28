@@ -1,0 +1,9 @@
+2023-12-25 07:13:01,619 root INFO logger info
+2023-12-25 07:16:01,589 10_logging.py::5 root INFO logger info
+2023-12-25 07:19:58 root INFO 10_logging.py::10 logger info
+2023-12-25 07:29:04 INFO [root@10_logging.py::10] logger info
+2023-12-25 07:30:35 INFO [root@10_logging.py::10] logger info ()
+2023-12-25 07:30:35 ERROR [root@10_logging.py::11] Query error {'query': 'select *', 'err': 'syntax error'}
+2023-12-25 07:38:59 WARNING [root@_10_module.py::3] Warning from module ()
+2023-12-25 07:38:59 INFO [root@10_logging.py::12] logger info ()
+2023-12-25 07:38:59 ERROR [root@10_logging.py::13] Query error {'query': 'select *', 'err': 'syntax error'}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link href="/static/site.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>CGI сервер</h1>
+    <button id="auth" onclick="authClick()">Auth</button>
+    <button id="info" onclick="infoClick()">Info</button>
+    <button id="publish" onclick="publishClick()">Publish</button>
+    <button id="getProducts" onclick="getProductsClick()">Get Products</button>
+
+    <div v-scope="ProductsList()" @vue:mounted="mounted"></div>
+
+    <template id="products-list-template">
+      <div class="row">
+        <div
+          v-for="product in products"
+          v-scope="Product({ product })"
+          class="col s6 m4 l3 xl2"
+        ></div>
+      </div>
+    </template>
+    <template id="product-template">
+      <div class="card">
+        <div class="card-image">
+          <img v-bind:src="'/static/img/' + product.image_url" width="150" />
+          <a
+            class="btn-floating halfway-fab waves-effect waves-light red"
+            @click="addCartClick"
+          >
+            <i class="material-icons">shopping_cart</i>
+          </a>
+        </div>
+        <div class="card-content">
+          <span
+            class="card-title product-card-title"
+            v-bind:title="product.name"
+            >{{product.name}}</span
+          >
+          <p style="text-decoration: line-through">
+            {{product.price + product.price / 2}} грн
+          </p>
+          <p>{{product.price}} грн</p>
+        </div>
+      </div>
+    </template>
+    <script src="static/site.js" charset="utf-8"></script>
+    <script type="module" src="static/spa.js" charset="utf-8"></script>
+  </body>
+</html>
